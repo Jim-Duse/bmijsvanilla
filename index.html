@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bmivanillajs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="parent-ref--canva">
+    <div class="main-ref--canva" id="main-ref--canva">
+        <h1>BMI Calculator</h1>
+        <p class="main-ref--canva-sub-info">
+            Healthy and Happy    
+        <p>
+        <div class="main-ref--canva-input">
+            <input type="text" id="feetHeight" name="" placeholder="Height - Feet"/>
+            <input type="text" id="inchHeight" name="" placeholder="Height - Inches"/>
+            <input type="text" id="weightVar" name="" placeholder="Weight - Lbs"/>
+            <input type="submit" id="submitData" name="" value="Show me" onclick="bmiCalculate()"/>
+            <p class="result-canva--main" id="result_main">00.0</p>
+            <p class="result-canva--main_text" id="result_main_text">Overview</p>
+            <div class="result-canva--sub-main">
+                <div class="result-canva--sub-main-flex">
+                    <div class="result-canva--sub-main-flex-img">
+                        <img src="./assets/bmistage.png" id="topFlexReferrer" alt="">
+                    </div>
+                    <div class="result-canva--sub-main-flex-text">
+                        <p>Recommended food to eat</p>
+                        <span>Enter your height in feet, inches and your weight to get a good guidance on how you can live a better life.</span>
+                        <!--<span>Make sure you eat more fruits and vegetables and stay away from sugar, pasta, rice and sodas.</span>-->
+                    </div>
+                </div>
+
+                <div class="result-canva--sub-main-flex">
+                    <div class="result-canva--sub-main-flex-img">
+                        <img src="./assets/bmistage.png" id="midFlexReferrer" alt="">
+                    </div>
+                    <div class="result-canva--sub-main-flex-text">
+                        <p>Activities</p> 
+                        <span>Enter your height in feet, inches and your weight to get a good guidance on how you can live a better life.</span>
+                    </div>
+                </div>
+
+                <div class="result-canva--sub-main-flex">
+                    <div class="result-canva--sub-main-flex-img">
+                        <img src="./assets/bmistage.png" id="bottomFlexReferrer" alt="">
+                    </div>
+                    <div class="result-canva--sub-main-flex-text">
+                        <p>Medical counsel</p> 
+                        <span>Enter your height in feet, inches and your weight to get a good guidance on how you can live a better life.</span>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <div class="main-ref--canva-tipe--text">
+            <p class="textOutTitle" id="textOut">Health tips:</p>
+            <p class="textOutparag" id="textOut">JSobject Paragraph</p> 
+        </div>
+        
+    </div>
+    <div class="main-ref--canva-footer">
+        &copy; 2024 myBMI
+    </div>
+    </div>
+<script src="index.js" charset="UTF-8"></script>
+</body>
+</html>
