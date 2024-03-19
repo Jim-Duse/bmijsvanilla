@@ -1,15 +1,13 @@
-function bmiCalculate() {
-    var myDictText = [
-        {id: 1,
-        name: "name1",
-        secname: "secname1"
-        },
-        {id: 2,
-        name: "name2",
-        secname: "secname2"
-        },
+//FOOTER TEXT RENDER
+let footerYear = new Date().getFullYear();
+let footerYearElement = document.getElementById("main-text-footer").innerHTML = footerYear;
 
-    ];
+
+
+
+//MAIN JS FUNCTION CALLBACK
+function bmiCalculate() {
+
     var heightFeet = +document.getElementById("feetHeight").value;
     var heightInchInit = +document.getElementById("inchHeight").value;
     var weight = +document.getElementById("weightVar").value;
@@ -27,21 +25,31 @@ function submitChecker() {
 }
     if(bmiCalculateForm < 18) {
         document.getElementById("result_main_text").innerHTML = "You are underweight";
+        document.getElementById("result-canva--recomm").innerHTML = "123";
+
+        
+
         var canva_uw_element = document.getElementById("main-ref--canva");
         canva_uw_element.classList.add("main-ref--canva-uw");
 
-        var topRefImg = document.getElementById("topFlexReferrer");
-        topRefImg.setAttribute("src", "./assets/uw_food.png");
-            var midRefImg = document.getElementById("midFlexReferrer");
-            midRefImg.setAttribute("src", "./assets/lightexercise.png");
-                var bottomRefImg = document.getElementById("bottomFlexReferrer");
-                bottomRefImg.setAttribute("src", "./assets/vitamins.png");
+
+            var topRefImg = document.getElementById("topFlexReferrer");
+            topRefImg.setAttribute("src", "./assets/uw_food.png");
+
+            
+                
+
+                    var midRefImg = document.getElementById("midFlexReferrer");
+                    midRefImg.setAttribute("src", "./assets/lightexercise.png");
+                        var bottomRefImg = document.getElementById("bottomFlexReferrer");
+                        bottomRefImg.setAttribute("src", "./assets/vitamins.png");
         //Call_submit_checker
         submitChecker();
     }
 
     else if(bmiCalculateForm > 18 && bmiCalculateForm < 25) {
         document.getElementById("result_main_text").innerHTML = "You are healthy";
+
         var canva_h_element = document.getElementById("main-ref--canva");
         canva_h_element.classList.toggle("main-ref--canva-h");
 
@@ -57,6 +65,7 @@ function submitChecker() {
 
     else if(bmiCalculateForm > 25 && bmiCalculateForm < 30) {
         document.getElementById("result_main_text").innerHTML = "You are over weight";
+
         var canva_ow_element = document.getElementById("main-ref--canva");
         canva_ow_element.classList.add("main-ref--canva-ow");
 
@@ -72,6 +81,7 @@ function submitChecker() {
 
     else if(bmiCalculateForm > 30 && bmiCalculateForm < 35) {
         document.getElementById("result_main_text").innerHTML = "You are obese";
+
         var canva_ob_element = document.getElementById("main-ref--canva");
         canva_ob_element.classList.add("main-ref--canva-ob");
 
@@ -100,5 +110,29 @@ function submitChecker() {
     } else {
         document.getElementById("result_main").innerHTML = bmiCalculateForm;
     }
-    document.getElementById("textOut").innerHTML = myDictText[1].name;
+    //PULL_JSON_DATA_TIPS
+    fetch('./tipsVault.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Request unavailable');
+            }
+            return response.json();
+        })
+        .then(data => {
+            let dataJsonArray = data.length;
+            let index = Math.floor(Math.random() * dataJsonArray);
+            if (index >= 0 && index < data.length) {
+              const item = data[index];
+              //console.log(item.tipTitle, item.tipBody);
+              //console.log(dataJsonArray);
+              //Export-JSON
+              document.getElementById("textOutTitle").innerHTML = item.tipTitle;
+              document.getElementById("textOutParaph").innerHTML = item.tipBody;
+            } else {
+              console.error('Index is out of bounds');
+            }
+          })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 }
